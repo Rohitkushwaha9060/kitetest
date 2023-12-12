@@ -4,8 +4,10 @@ var express = require("express");
 
 const app = express();
 
-app.get("/", () => {
-  return "Server Running";
+app.get("/", (req, res, next) => {
+  return res.status(200).json({
+    message: "Server is running",
+  });
 });
 
 app.listen(process.env.PORT, () => {
